@@ -1,0 +1,13 @@
+CHANGES IN GIT--
+
+REPO---SETTINGS---WEBHOOK---
+JENKINSIP:8080/git-hub-webhook/
+
+AFTER THIS CHECK FOR GREEN MARK in WEBHOOK
+
+IN JOB CONFIGURATION
+
+BUILD TRIGGERS
+Check option GITHUB HOOK TRIGGER FOR POLLSCM  POLLING
+
+NOW DO SOME CHANGES in git repo provided in webhook job and check whether job is triggering or not
