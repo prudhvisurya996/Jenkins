@@ -1,0 +1,12 @@
+In Jenkins we can create a master slave job using postbuild action
+
+Take 
+job1 job2 job3
+
+FLOW should be job1-job3-job2
+
+In postbuild option check build other projects here you can give option
+
+other job name that should be build in jenkins
+
+Once master job is finished the slave jobs or dependent jobs are tiggered automatically
