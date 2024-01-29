@@ -15,3 +15,6 @@ export PATH=$PATH:$M2_HOME/bin
 
 # Verify Maven Version
 $M2_HOME/bin/mvn --version
+
+source ~/.bashrc
+
