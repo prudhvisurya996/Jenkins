@@ -1,4 +1,4 @@
-sudo -i
+
 
 sudo apt update -y
 
