@@ -1,0 +1,41 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Start') {
+            steps {
+                script {
+                    emailext body: "Your pipeline has started ",
+                        subject: 'Pipeline Started',
+                        to: 'prudhvisurya996@gmail.com,prudhvisurya996@outlook.com,newgrp480410@groups.outlook.com'
+                }
+            }
+        }
+
+        stage('Build') {
+            steps {
+                checkout scmGit1(branches : [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'git-cred', url: 'https://github.com/prudhvisurya996/Jenkins.git']])
+
+            }
+        }
+    }
+
+    post {
+        success {
+            // Notify on success
+            script {
+                emailext body: "${env.JOB_NAME} pipeline build ${env.BUILD_NUMBER} is ${currentBuild.currentResult}.",
+                    subject: 'Pipeline Success',
+                    to: 'prudhvisurya996@gmail.com'
+            }
+        }
+        failure {
+            // Notify on failure
+            script {
+                emailext body: " ${currentBuild.currentResult}:${env.JOB_NAME} pipeline build ${env.BUILD_NUMBER}  .",
+                    subject: 'Pipeline Failure',
+                    to: 'prudhvisurya996@gmail.com'
+            }
+        }
+    }
+}
