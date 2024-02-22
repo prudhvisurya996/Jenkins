@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+    stages {
+        stage("stage-1") {
+            steps {
+                script {
+                    checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/prudhvisurya996/Git.git']]])
+                }
+            }
+        }
+    }
+    post {
+        always {
+            echo 'Slack Notifications.'
+            slackSend(channel: '#devopscicd', message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}")
+        }
+    }
+}
