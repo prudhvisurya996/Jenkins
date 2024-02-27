@@ -29,5 +29,5 @@ In Jenkins, there are several built-in environment variables that provide inform
 14. **SVN_REVISION**: If the build is triggered by a Subversion SCM change, this variable contains the revision number.
 
 15. **SVN_URL**: The URL of the Subversion repository.
-
+16 . ${env.STAGE_NAME}----------stage name
 These are just a few examples of the many built-in environment variables available in Jenkins. You can access and use these variables within your build scripts, pipeline definitions, plugins, and other configurations to customize and automate your build process.
