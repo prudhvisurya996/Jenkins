@@ -1,0 +1,33 @@
+In Jenkins, there are several built-in environment variables that provide information about the build environment and various other details. These variables can be accessed within build scripts, plugins, or anywhere else that supports environment variable substitution. Some common built-in environment variables include:
+
+1. **BUILD_ID**: The current build ID, which is a unique identifier for the build.
+
+2. **BUILD_NUMBER**: The current build number, which increments with each new build.
+
+3. **BUILD_TAG**: A combination of the job name and the build number, separated by a hyphen (-).
+
+4. **BUILD_URL**: The URL to the current build.
+
+5. **EXECUTOR_NUMBER**: The unique number that identifies the current executor (agent or node).
+
+6. **JOB_NAME**: The name of the job or project being built.
+
+7. **WORKSPACE**: The absolute path of the workspace directory where the build is being performed.
+
+8. **JENKINS_HOME**: The absolute path of the Jenkins home directory.
+
+9. **NODE_NAME**: The name of the agent or node executing the build.
+
+10. **JOB_URL**: The URL to the job or project being built.
+
+11. **GIT_BRANCH**: If the build is triggered by a Git SCM change, this variable contains the branch name.
+
+12. **GIT_COMMIT**: The SHA1 hash of the commit being built.
+
+13. **GIT_URL**: The URL of the Git repository.
+
+14. **SVN_REVISION**: If the build is triggered by a Subversion SCM change, this variable contains the revision number.
+
+15. **SVN_URL**: The URL of the Subversion repository.
+
+These are just a few examples of the many built-in environment variables available in Jenkins. You can access and use these variables within your build scripts, pipeline definitions, plugins, and other configurations to customize and automate your build process.
