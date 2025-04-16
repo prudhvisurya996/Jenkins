@@ -1,0 +1,65 @@
+pipeline {
+  agent any
+  parameters {
+    booleanParam(name: 'BUILD_FLAG', defaultValue: false, description: 'Run the full build pipeline?')
+  }
+  stages {
+    stage('Checkout') {
+      steps {
+        script {
+          if (params.BUILD_FLAG) {
+            echo 'Checking out the code...'
+            // git checkout logic here
+          } else {
+            echo 'Checkout stage skipped (BUILD_FLAG=false).'
+          }
+        }
+      }
+    }
+
+    stage('Build') {
+      steps {
+        script {
+          if (params.BUILD_FLAG) {
+            echo 'Building the project...'
+            // build logic here
+          } else {
+            echo 'Build stage skipped (BUILD_FLAG=false).'
+          }
+        }
+      }
+    }
+
+    stage('Test') {
+      steps {
+        script {
+          if (params.BUILD_FLAG) {
+            echo 'Running tests...'
+            // test logic here
+          } else {
+            echo 'Test stage skipped (BUILD_FLAG=false).'
+          }
+        }
+      }
+    }
+
+    stage('Deploy') {
+      steps {
+        script {
+          if (params.BUILD_FLAG) {
+            echo 'Deploying the project...'
+            // deploy logic here
+          } else {
+            echo 'Deploy stage skipped (BUILD_FLAG=false).'
+          }
+        }
+      }
+    }
+  }
+
+  post {
+    always {
+      echo "Pipeline completed. BUILD_FLAG was set to: ${params.BUILD_FLAG}"
+    }
+  }
+}
